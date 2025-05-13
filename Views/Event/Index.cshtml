@@ -1,0 +1,47 @@
+﻿@model IEnumerable<VenueBookingSystem.Models.Event>
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h1>Events</h1>
+
+<form asp-controller="Event" asp-action="Index" method="get" class="form-inline mb-3">
+    <div class="form-group mr-2">
+        <input type="text" name="searchString" class="form-control" placeholder="Search by name or location"
+               value="@Context.Request.Query["searchString"]" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+    <a asp-action="Index" class="btn btn-secondary ml-2">Reset</a>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New Event</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Location)</th>
+            <th>@Html.DisplayNameFor(model => model.First().StartDate)</th>
+            <th>@Html.DisplayNameFor(model => model.First().EndDate)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Location</td>
+                <td>@item.StartDate.ToString("yyyy-MM-dd")</td>
+                <td>@item.EndDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

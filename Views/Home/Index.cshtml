@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to EventEase</h1>
+    <p class="lead">Your smart solution for booking and managing events and venues.</p>
+</div>
+
+<hr />
+
+<div class="row text-center">
+    <div class="col-md-4">
+        <h3>Venues</h3>
+        <p>Browse and manage available venues for your events.</p>
+        <a asp-controller="Venues" asp-action="Index" class="btn btn-primary">View Venues</a>
+    </div>
+    <div class="col-md-4">
+        <h3>Events</h3>
+        <p>Manage your upcoming events with ease.</p>
+        <a asp-controller="Event" asp-action="Index" class="btn btn-success">View Events</a>
+    </div>
+    <div class="col-md-4">
+        <h3>Bookings</h3>
+        <p>Check and manage current bookings.</p>
+        <a asp-controller="Bookings" asp-action="Index" class="btn btn-info">View Bookings</a>
+    </div>
+</div>

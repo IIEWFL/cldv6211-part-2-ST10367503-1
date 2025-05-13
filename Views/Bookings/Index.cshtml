@@ -1,0 +1,31 @@
+﻿@model IEnumerable<VenueBookingSystem.Models.Booking>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Booking ID</th>
+            <th>Customer</th>
+            <th>Email</th>
+            <th>Venue</th>
+            <th>Venue Location</th>
+            <th>Event</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Id</td>
+                <td>@booking.CustomerName</td>
+                <td>@booking.CustomerEmail</td>
+                <td>@booking.Venue?.Name</td>
+                <td>@booking.Venue?.Location</td>
+                <td>@booking.Event?.Name</td>
+                <td>@booking.StartDate</td>
+                <td>@booking.EndDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
